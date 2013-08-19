@@ -120,6 +120,10 @@ INSTALLED_APPS = (
     'south',
     'django_extensions',
     'unipath',
+    'billing_data',
+    'cold_brew_orders',
+    'shipping_data',
+    'users',
 
     # Uncomment the next line to enable the admin:
     # 'django.contrib.admin',
