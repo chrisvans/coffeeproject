@@ -2,6 +2,7 @@
 
 import os
 from django.core.exceptions import ImproperlyConfigured
+from unipath import Path
 
 def get_env_variable(env_variable):
 	# Get the env variable or return exception
@@ -10,6 +11,18 @@ def get_env_variable(env_variable):
 	except KeyError:
 		error_msg = "Set the %s environment variable" % env_variable
 		raise ImproperlyConfigured(error_msg)
+
+PROJECT_DIR = Path(__file__).ancestor(3)
+MEDIA_ROOT = PROJECT_DIR.child("media")
+STATIC_ROOT = PROJECT_DIR.child("static")
+
+STATICFILES_DIRS = (
+    PROJECT_DIR.child("assets")
+)
+
+TEMPLATE_DIRS = (
+    PROJECT_DIR.child("templates")
+)
 
 ADMINS = (
     ('Chris', 'chrisvanschyndel@gmail.com'),
@@ -63,13 +76,6 @@ STATIC_ROOT = ''
 # Example: "http://example.com/static/", "http://static.example.com/"
 STATIC_URL = '/static/'
 
-# Additional locations of static files
-STATICFILES_DIRS = (
-    # Put strings here, like "/home/html/static" or "C:/www/django/static".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
-)
-
 # List of finder classes that know how to find static files in
 # various locations.
 STATICFILES_FINDERS = (
@@ -102,12 +108,6 @@ ROOT_URLCONF = 'coffeeproject.urls'
 
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = 'coffeeproject.wsgi.application'
-
-TEMPLATE_DIRS = (
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
-)
 
 INSTALLED_APPS = (
     'django.contrib.auth',
