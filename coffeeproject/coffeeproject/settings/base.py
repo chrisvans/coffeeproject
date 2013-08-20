@@ -124,6 +124,8 @@ INSTALLED_APPS = (
     'cold_brew_orders',
     'shipping_data',
     'users',
+    # Custom app for model inheritance
+    'django_model_shortcuts',
 
     # Uncomment the next line to enable the admin:
     # 'django.contrib.admin',
