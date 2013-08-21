@@ -14,8 +14,14 @@ class TimeStampedModel(models.Model):
     	abstract = True
 
 class ExtraModelMethods(models.Model):
+	"""
+    Extra methods applied to classes built around easy information display and utility.
+	"""
 
 	def attributes(self):
+		"""
+		Prints all attributes of a class ->  Name : Attribute_Value : Attribute_Type
+		"""
 		for field in self._meta.fields:
 			attribute_item = getattr(self, field.name)
 			print str(field.name) + " : " + str(attribute_item) + " : " + str(type(attribute_item))
