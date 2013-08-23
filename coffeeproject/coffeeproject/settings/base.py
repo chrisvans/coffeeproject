@@ -126,6 +126,7 @@ INSTALLED_APPS = (
     'users',
     # Custom app for model inheritance
     'django_model_shortcuts',
+    'core',
 
     # Uncomment the next line to enable the admin:
     # 'django.contrib.admin',
