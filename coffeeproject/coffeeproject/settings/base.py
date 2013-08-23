@@ -125,7 +125,6 @@ INSTALLED_APPS = (
     'shipping_data',
     'users',
     # Custom app for model inheritance
-    'django_model_shortcuts',
     'core',
 
     # Uncomment the next line to enable the admin:
