@@ -5,34 +5,6 @@ from django.db import models
 
 # Use a model manager here to return orders based on paid or delivered booleans.
 
-
-
-"""
-Sunday 8/25
-Create a function to accept string data from select forms, and format to the appropriate
-syntax for entry into the below function.
-
-Monday 8/26
-Create a model manager to store these functions as methods and make importing easier.
-
-Tuesday 8/27
-
-Wednesday 8/28
-
-Thursday 8/29
-
-Friday 8/30
-
-Sunday 9/1
-
-Monday 9/2
-
-Tuesday 9/3
-
-Wednesday 9/4
- 
-"""
-
 def parse_order_info(order_object):
     """
     Expects a string of order information, where each coffee order type is separated by commas,
