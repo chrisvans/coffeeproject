@@ -1,3 +1,5 @@
 from django.db import models
+from core.models import TimeStampedModel, ExtraModelMethods
 
-# Create your models here.
+class ShippingAddress(TimeStampedModel, ExtraModelMethods):
+    pass
