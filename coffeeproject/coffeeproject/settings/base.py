@@ -127,6 +127,7 @@ INSTALLED_APPS = (
     'users',
     # Custom app for model inheritance
     'core',
+    'selenium',
 
     # Uncomment the next line to enable the admin:
     # 'django.contrib.admin',
