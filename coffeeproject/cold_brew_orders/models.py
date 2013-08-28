@@ -14,7 +14,7 @@ class ColdBrewOrder(TimeStampedModel, ExtraModelMethods):
     shipping_address = models.ForeignKey('shipping_data.ShippingAddress')
 
     def __unicode__(self):
-        return unicode(self.user.email + " " + self.is_delivered + " " + self.is_paid)
+        return unicode(self.user.email + " " + str(self.is_delivered) + " " + str(self.is_paid))
 
     def parse_order_info(self):
         """
@@ -36,3 +36,4 @@ class ColdBrewOrder(TimeStampedModel, ExtraModelMethods):
         return orders_list
 
     # Expected use -> parse_order_info('miralvalle;32oz Growler;5;14.00,villa sarchi;16oz Growler;5;12.00')
+    # Expected result -> [['miralvalle', '32oz Growler', '5', '14.00'], ['villa sarchi', '16oz Growler', '5', '12.00']]

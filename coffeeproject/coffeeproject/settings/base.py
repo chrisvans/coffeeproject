@@ -119,6 +119,7 @@ INSTALLED_APPS = (
     'coverage',
     'south',
     'django_extensions',
+    'discover_runner',
     'unipath',
     'billing_data',
     'cold_brew_orders',
