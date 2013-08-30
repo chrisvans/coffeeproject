@@ -24,6 +24,8 @@ TEMPLATE_DIRS = (
     PROJECT_DIR.child("templates")
 )
 
+TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+
 ADMINS = (
     ('Chris', 'chrisvanschyndel@gmail.com'),
 )
@@ -128,6 +130,7 @@ INSTALLED_APPS = (
     # Custom app for model inheritance
     'core',
     'selenium',
+    'django_nose',
 
     # Uncomment the next line to enable the admin:
     # 'django.contrib.admin',
