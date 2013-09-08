@@ -5,6 +5,9 @@ from django.conf.urls import patterns, include, url
 # admin.autodiscover()
 
 urlpatterns = patterns('',
+    url(r'^$', coffeeproject.trim.views.home_view, name='home_view'),
+    url(r'^trim/$', coffeproject.trim.views.trim, name='trim'),
+    url(r'^trim/(?P<trimmed_url>\d+)/$', coffeeproject.trim.views.trimmed_url, name='trimmed_url'),
     # Examples:
     # url(r'^$', 'coffeeproject.views.home', name='home'),
     # url(r'^coffeeproject/', include('coffeeproject.foo.urls')),
