@@ -11,28 +11,34 @@ from trim.models import Trimurl
 import random, string
 
 def home_view(request):
+    # '/' View
     return HttpResponseRedirect('/trim/')
 
 def trim(request):
+    # '/trim' View for url input and trimming
     error_message = None
     success_message = None
     information_message = None
+
     if request.method == 'POST':
         url = request.POST['url']
         validate = URLValidator()
 
         try:
             
+            # Add http for proper validation check
             if url[0:4] != 'http':
                 url = 'http://' + url
 
             validate(url)
-
+            
+            # Remove http / s for generic url storage
             url = url.replace('https://', '')
             url = url.replace('http://', '')
 
             check_for_url = Trimurl.objects.filter(url=url)
-
+            
+            # If the url already exists, don't create a new entry, refer to the old one instead
             if check_for_url.exists():
                 old_trimurl = check_for_url[0]
                 success_message = 'URL ' + url + ' Successfully trimmed to ' + old_trimurl.trimmed_url + '!'
@@ -41,7 +47,8 @@ def trim(request):
             else:
                 new_trimurl = Trimurl()
                 check_for_existing_trimmed_url = True
-
+                
+                # Assure that a new unique trimmed url is generated
                 while check_for_existing_trimmed_url:
                     trimmed_url = ''.join(random.choice(string.ascii_lowercase) for x in range(6))
                     check_for_trimmed_url = Trimurl.objects.filter(trimmed_url=trimmed_url)
@@ -63,6 +70,7 @@ def trim(request):
                                         'information_message' : information_message })
 
 def trimmed_url(request, trimmed_url=None):
+    # /trim/<trimmed_url> View for redirection to proper page
     url = None
     trimurl = None
 
