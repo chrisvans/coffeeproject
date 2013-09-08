@@ -19,6 +19,10 @@ DATABASES = {
 	}
 }
 
+# Parse database configuration from $DATABASE_URL
+import dj_database_url
+DATABASES['default'] =  dj_database_url.config()
+
 INSTALLED_APPS += ("debug_toolbar", )
 INTERNAL_IPS = ("127.0.0.1",)
 MIDDLEWARE_CLASSES += \
