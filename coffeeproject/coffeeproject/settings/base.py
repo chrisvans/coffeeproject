@@ -118,20 +118,28 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'billing_data',
+    'cold_brew_orders',
+    'shipping_data',
+    'users',
+    # App that allows URLs to be shortened
+    'trim',
+    # Custom app for model inheritance
+    'core',
     'coverage',
     'south',
     'django_extensions',
     'discover_runner',
     'unipath',
-    'billing_data',
-    'cold_brew_orders',
-    'shipping_data',
-    'users',
-    'trim',
-    # Custom app for model inheritance
-    'core',
-    'selenium',
-    'django_nose',
+    'gunicorn',
+    'django_gevent_deploy',
+    'gevent',
+    'psycopg2',
+    'dj_database_url',
+    'dj_static',
+    'boto',
+    'pytz',
+
 
     # Uncomment the next line to enable the admin:
     # 'django.contrib.admin',
