@@ -8,6 +8,7 @@ from django.core.validators import URLValidator
 # from django.contrib.auth.models import User
 from django.template import Context, loader
 from trim.models import Trimurl
+import random, string
 
 def home_view(request):
     return HttpResponseRedirect('/trim/')
@@ -21,8 +22,11 @@ def trim(request):
         validate = URLValidator()
 
         try:
+            
+            if url[0:4] != 'http':
+                url = 'http://' + url
+
             validate(url)
-            print url
 
             url = url.replace('https://', '')
             url = url.replace('http://', '')
@@ -30,8 +34,24 @@ def trim(request):
             check_for_url = Trimurl.objects.filter(url=url)
 
             if check_for_url.exists():
-                success_message = 'URL ' + url + ' Successfully trimmed to ' + 'abcdef' + '!'
-                information_message = 'Access your url at coffeeproject.herokuapp.com/trim/' + 'adcdef/'
+                old_trimurl = check_for_url[0]
+                success_message = 'URL ' + url + ' Successfully trimmed to ' + old_trimurl.trimmed_url + '!'
+                information_message = 'Access your url at coffeeproject.herokuapp.com/trim/' + old_trimurl.trimmed_url + '/'
+
+            else:
+                new_trimurl = Trimurl()
+                check_for_existing_trimmed_url = True
+
+                while check_for_existing_trimmed_url:
+                    trimmed_url = ''.join(random.choice(string.ascii_lowercase) for x in range(6))
+                    check_for_trimmed_url = Trimurl.objects.filter(trimmed_url=trimmed_url)
+                    check_for_existing_trimmed_url = check_for_trimmed_url.exists()
+
+                new_trimurl.trimmed_url = trimmed_url
+                new_trimurl.url = url
+                new_trimurl.save()
+                success_message = 'URL ' + url + ' Successfully trimmed to ' + trimmed_url + '!'
+                information_message = 'Access your url at coffeeproject.herokuapp.com/trim/' + trimmed_url + '/'
 
 
         except ValidationError, err_msg:
