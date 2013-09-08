@@ -127,6 +127,7 @@ INSTALLED_APPS = (
     'cold_brew_orders',
     'shipping_data',
     'users',
+    'trim',
     # Custom app for model inheritance
     'core',
     'selenium',
