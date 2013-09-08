@@ -28,7 +28,7 @@ STATICFILES_DIRS = (
 
 BASE_DIR = os.path.dirname(os.path.abspath('__file__'))
 TEMPLATE_DIRS = (
-    os.path.join(BASE_DIR, 'Templates'),
+    os.path.join(BASE_DIR, 'templates'),
 )
 
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
