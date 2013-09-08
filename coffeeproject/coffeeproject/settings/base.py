@@ -26,8 +26,9 @@ STATICFILES_DIRS = (
     PROJECT_DIR.child("assets")
 )
 
+BASE_DIR = os.path.dirname(os.path.abspath('__file__'))
 TEMPLATE_DIRS = (
-    PROJECT_DIR.child("templates")
+    os.path.join(BASE_DIR, 'Templates'),
 )
 
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
