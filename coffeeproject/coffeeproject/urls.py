@@ -1,13 +1,14 @@
 from django.conf.urls import patterns, include, url
-
+import trim
+from trim import views
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
 # admin.autodiscover()
 
 urlpatterns = patterns('',
-    url(r'^$', coffeeproject.trim.views.home_view, name='home_view'),
-    url(r'^trim/$', coffeproject.trim.views.trim, name='trim'),
-    url(r'^trim/(?P<trimmed_url>\d+)/$', coffeeproject.trim.views.trimmed_url, name='trimmed_url'),
+    url(r'^$', trim.views.home_view, name='home_view'),
+    url(r'^trim/$', trim.views.trim, name='trim'),
+    url(r'^trim/(?P<trimmed_url>[a-z]{6})/$', trim.views.trimmed_url, name='trimmed_url'),
     # Examples:
     # url(r'^$', 'coffeeproject.views.home', name='home'),
     # url(r'^coffeeproject/', include('coffeeproject.foo.urls')),

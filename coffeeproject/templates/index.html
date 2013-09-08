@@ -1,0 +1,43 @@
+{% load url from future %}
+
+<html lang="en">
+
+  <head>
+    <title>Trim</title>
+  </head>
+
+  <body>
+
+    <div>
+
+      <form class="form-signin" action="{% url 'trim' %}" method="post">
+
+        {% csrf_token %}
+        <h2 class="form-signin-heading">Enter URL here to have it trimmed!</h2>
+        <input type="text" name="url" class="input-block-level" placeholder="*Your URL">
+        <button type="submit">Submit</button>
+
+        {% if error_message %}
+          <div>
+            {{ error_message }}
+          </div>
+        {% endif %}
+
+        {% if success_message %}
+          <div>
+            {{ success_message }}
+          </div>
+        {% endif %}
+
+        {% if information_message %}
+          <div>
+            {{ information_message }}
+          </div>
+        {% endif %}
+
+      </form>
+
+    </div>
+
+  </body>
+</html>
