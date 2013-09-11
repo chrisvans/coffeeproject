@@ -42,7 +42,7 @@ def trim(request):
             if check_for_url.exists():
                 old_trimurl = check_for_url[0]
                 success_message = 'URL ' + url + ' Successfully trimmed to ' + old_trimurl.trimmed_url + '!'
-                information_message = 'Access your url at coffeeproject.herokuapp.com/trim/' + old_trimurl.trimmed_url + '/'
+                information_message = 'Access your url at www.cutlink.us/trim/' + old_trimurl.trimmed_url + '/'
 
             else:
                 new_trimurl = Trimurl()
@@ -58,7 +58,7 @@ def trim(request):
                 new_trimurl.url = url
                 new_trimurl.save()
                 success_message = 'URL ' + url + ' Successfully trimmed to ' + trimmed_url + '!'
-                information_message = 'Access your url at coffeeproject.herokuapp.com/trim/' + trimmed_url + '/'
+                information_message = 'Access your url at www.cutlink.us/trim/' + trimmed_url + '/'
 
 
         except ValidationError, err_msg:
