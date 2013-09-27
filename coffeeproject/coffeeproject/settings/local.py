@@ -8,20 +8,10 @@ TEMPLATE_DEBUG = DEBUG
 EMAIL_HOST = "localhost"
 EMAIL_PORT = 1025
 
-DATABASES = {
-	"default": {
-	    "ENGINE": "django.db.backends.postgresql_psycopg2",
-	    "NAME": "coffeeproject",
-	    "USER": "djangochris",
-	    "PASSWORD": "DjangoChris",
-	    "HOST": "localhost",
-	    "PORT": "",
-	}
-}
-
 # Parse database configuration from $DATABASE_URL
 import dj_database_url
-DATABASES['default'] =  dj_database_url.config()
+
+# DATABASES['default'] =  dj_database_url.config()
 
 INSTALLED_APPS += ("debug_toolbar", )
 INTERNAL_IPS = ("127.0.0.1",)

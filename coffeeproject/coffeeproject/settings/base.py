@@ -4,6 +4,18 @@ import os
 from django.core.exceptions import ImproperlyConfigured
 from unipath import Path
 
+
+DATABASES = {
+    'default': {
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
+        "NAME": "coffeeproject",
+        "USER": "djangochris",
+        "PASSWORD": "DjangoChris",
+        "HOST": "localhost",
+        "PORT": "",
+    }
+}
+
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
@@ -185,4 +197,3 @@ LOGGING = {
         },
     }
 }
-

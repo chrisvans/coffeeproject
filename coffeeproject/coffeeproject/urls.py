@@ -7,9 +7,9 @@ from trim import views
 
 urlpatterns = patterns('',
     url(r'^$', trim.views.home_view, name='home_view'),
-    url(r'^(?P<trimmed_url>[a-z]{6})/$', trim.views.trimmed_url, name='trimmed_url'),
+    url(r'^(?P<trimmed_url>[a-z]{6})/$', trim.views.trim, name='trimmed_url'),
     url(r'^trim/$', trim.views.trim, name='trim'),
-    url(r'^trim/(?P<trimmed_url>[a-z]{6})/$', trim.views.trimmed_url, name='trimmed_url'),
+    url(r'^trim/(?P<trimmed_url>[a-z]{6})/$', trim.views.trim, name='trimmed_url'),
     # Examples:
     # url(r'^$', 'coffeeproject.views.home', name='home'),
     # url(r'^coffeeproject/', include('coffeeproject.foo.urls')),
