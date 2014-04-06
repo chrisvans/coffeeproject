@@ -1,4 +1,6 @@
+Adafruit-BBIO==0.0.19
 Django==1.5.2
+RPi.GPIO==0.5.4
 Jinja2==2.7.1
 MarkupSafe==0.18
 Pygments==1.6

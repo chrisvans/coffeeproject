@@ -9,10 +9,10 @@ import twilio.twiml
 def receive_message(request):
 
     if request.POST.get('Body'):
-        if 'no' in request.POST.get('Body'):
+        if 'no' in request.POST.get('Body') or 'No' in request.POST.get('Body'):
             response = twilio.twiml.Response()
             response.message("The door will not be opened.")
-        elif 'yes' in request.POST.get('Body'):
+        elif 'yes' in request.POST.get('Body') or 'Yes' in request.POST.get('Body'):
             response = twilio.twiml.Response()
             response.message("The door will be opened.")
         else:
