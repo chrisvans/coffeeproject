@@ -159,8 +159,6 @@ INSTALLED_APPS = (
     'dj_static',
     'boto',
     'pytz',
-    'test_taggit',
-    'taggit',
 
     # Uncomment the next line to enable the admin:
     # 'django.contrib.admin',
