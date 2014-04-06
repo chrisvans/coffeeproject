@@ -10,6 +10,7 @@ urlpatterns = patterns('',
     url(r'^(?P<trimmed_url>[a-z]{6})/$', trim.views.trim, name='trimmed_url'),
     url(r'^trim/$', trim.views.trim, name='trim'),
     url(r'^trim/(?P<trimmed_url>[a-z]{6})/$', trim.views.trim, name='trimmed_url'),
+    url(r'^sms/$', 'sms.views.receive_message', name='sms_receive'),
     # Examples:
     # url(r'^$', 'coffeeproject.views.home', name='home'),
     # url(r'^coffeeproject/', include('coffeeproject.foo.urls')),
