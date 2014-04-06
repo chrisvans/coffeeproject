@@ -161,7 +161,6 @@ INSTALLED_APPS = (
     'pytz',
     'test_taggit',
     'taggit',
-    'chosen',
 
     # Uncomment the next line to enable the admin:
     # 'django.contrib.admin',
