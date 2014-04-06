@@ -8,9 +8,17 @@ import twilio.twiml
 @csrf_exempt
 def receive_message(request):
 
-    response = twilio.twiml.Response()
-    response.message("""
-        Open the door?  Reply with yes or no.
-        """)
+    if request.values.get('body'):
+        if 'no' in request.values.get('body'):
+            response = twilio.twiml.Response()
+            response.message("The door will not be opened.")
+        elif 'yes' in request.values.get('body'):
+            response = twilio.twiml.Response()
+            response.message("The door will be opened.")
+        else:
+            response = twilio.twiml.Response()
+            response.message("""
+                Sorry, you need to reply with a yes or no.
+                """)
 
     return HttpResponse(response, content_type='text/xml')
