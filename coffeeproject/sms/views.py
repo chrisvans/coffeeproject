@@ -8,14 +8,11 @@ import twilio.twiml
 @csrf_exempt
 def receive_message(request):
 
-    print '----------------------------'
-    print request
-    print '----------------------------'
-    if request.values.get('body'):
-        if 'no' in request.values.get('body'):
+    if request.POST.get('Body'):
+        if 'no' in request.POST.get('Body'):
             response = twilio.twiml.Response()
             response.message("The door will not be opened.")
-        elif 'yes' in request.values.get('body'):
+        elif 'yes' in request.POST.get('Body'):
             response = twilio.twiml.Response()
             response.message("The door will be opened.")
         else:
