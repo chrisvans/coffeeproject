@@ -43,19 +43,21 @@ class TrimMan(models.Model):
 
     @classmethod
     def process_view(self, request, trimmed_url=None):
-        # trimmed_url is URI here
-        # requires the following line in urls for this view logic
-        # url(r'^/path_name(?P<trimmed_url>[a-z]{6})/$', project.views.view_name, name='view_name')
+        """
+        trimmed_url is URI here
+        requires the following line in urls for this view logic
+        url(r'^/path_name(?P<trimmed_url>[a-z]{6})/$', project.views.view_name, name='view_name')
 
-        # the view that process_view is called in must have trimmed_url as an argument
+        the view that process_view is called in must have trimmed_url as an argument
 
-        # process_view expects a view to host a submit field for POST, and deliver status messages 
-        # it returns a dictionary with the following information:
-        # {
-        # 'error_message' : error_message,
-        # 'url' : url,
-        # 'trimmed_url' : trimmed_url,
-        # }
+        process_view expects a view to host a submit field for POST, and deliver status messages 
+        it returns a dictionary with the following information:
+        {
+        'error_message' : error_message,
+        'url' : url,
+        'trimmed_url' : trimmed_url,
+        }
+        """
 
         if trimmed_url:
 

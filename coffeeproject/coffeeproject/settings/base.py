@@ -145,6 +145,7 @@ INSTALLED_APPS = (
     'trim',
     # Custom app for model inheritance
     'core',
+    'sms',
     'coverage',
     'south',
     'django_extensions',
@@ -158,7 +159,9 @@ INSTALLED_APPS = (
     'dj_static',
     'boto',
     'pytz',
-
+    'test_taggit',
+    'taggit',
+    'chosen',
 
     # Uncomment the next line to enable the admin:
     # 'django.contrib.admin',
